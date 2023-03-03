@@ -1,0 +1,20 @@
+@import './variables.scss';
+
+#i-post-body {
+    height: fit-content;
+    width: 40vw;
+    background-color: rgba($blue, 0.2);
+    border-radius: 10px;
+    padding: 5px 15px;
+}
+
+#poster-name {
+    font-family: $main-font;
+    color: $black;
+    font-size: 1.3rem;
+}
+
+#post-content {
+    font-family: $main-font;
+    
+}
