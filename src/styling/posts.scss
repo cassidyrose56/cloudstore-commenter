@@ -1,6 +1,6 @@
 @import './variables.scss';
 
-#i-post-body {
+#new-post-body {
     height: fit-content;
     width: 40vw;
     background-color: rgba($blue, 0.2);
@@ -8,13 +8,30 @@
     padding: 5px 15px;
 }
 
-#poster-name {
+.poster-name {
     font-family: $main-font;
     color: $black;
     font-size: 1.3rem;
+    margin: 0;
 }
 
-#post-content {
+.post-content {
     font-family: $main-font;
-    
+    margin: 0;
+}
+
+.comment-item {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba($blue, 0.1);
+    width: 80%;
+    min-width: fit-content;
+    margin: 5%;
+    padding: 2%;
+    border-radius: 10px;
+}
+
+.replying-layout {
+    display: flex;
+    flex-direction: column;
 }

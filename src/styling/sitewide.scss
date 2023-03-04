@@ -17,13 +17,22 @@ body {
     min-height: 93vh;
     background-color: $white;
     border-radius: 20px;
-    overflow: scroll;
     display: flex;
     flex-direction: column;
+    margin: 25px 0;
 }
 
 #page-title {
     color: $blue;
     font-family: $main-font;
     align-self: center;
+}
+
+.btn {
+    font-family: $main-font;
+    background-color: $white;
+    border: 1px solid $black;
+    width: 73px;
+    height: 30px;
+    border-radius: 10px;
 }
