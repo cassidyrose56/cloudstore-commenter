@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --mode development --open --hot",
     "build": "webpack --mode production",
-    "dev": "webpack-dev-server --mode development --open --hot & nodemon ./server/server.js"
+    "dev": "webpack-dev-server --mode development --open --hot"
   },
   "repository": {
     "type": "git",
@@ -21,7 +21,6 @@
   "homepage": "https://github.com/cassidyrose56/cloudstore-technical#readme",
   "dependencies": {
     "express": "^4.18.2",
-    "nodemon": "^2.0.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sass": "^1.58.3"

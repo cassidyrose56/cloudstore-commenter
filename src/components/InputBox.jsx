@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../styling/posts.scss'
 
-const InputBox = ({ addComment }) => {
+const InputBox = ({ addComment, parent }) => {
 
     const [newComment, setNewComment] = useState('')
 
@@ -16,11 +16,11 @@ const InputBox = ({ addComment }) => {
                 addComment({
                     id: Math.floor(Math.random() * 100),
                     message: newComment,
+                    parent: parent,
                     nestedArr: []
                 });
                 setNewComment('');
-                console.log('clicked submit')
-                }}>
+            }}>
                     Submit
             </button>
         </div>

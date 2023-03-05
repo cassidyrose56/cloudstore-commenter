@@ -28,11 +28,34 @@ body {
     align-self: center;
 }
 
+input {
+    height: 22px;
+    width: 60%;
+    color: $black;
+    font-family: $main-font;
+    font-size: 14px;
+    border-radius: 4px;
+    padding: 4px 8px;
+    border: 2px solid transparent;
+    box-shadow: rgb(0 0 0 / 12%) 0px 1px 3px, rgb(0 0 0 / 24%) 0px 1px 2px;
+    background: $white;
+    transition: all 0.1s ease 0s;
+    margin: 10px;
+    margin-left: 0;
+    :focus{
+        border: 2px solid $blue;
+    }
+
+}
+
 .btn {
     font-family: $main-font;
     background-color: $white;
-    border: 1px solid $black;
+    border: 2px solid transparent;
+    box-shadow: rgb(0 0 0 / 12%) 0px 1px 3px, rgb(0 0 0 / 24%) 0px 1px 2px;
     width: 73px;
     height: 30px;
-    border-radius: 10px;
+    margin: 5px;
+    margin-left: 0;
+    border-radius: 4px;
 }
