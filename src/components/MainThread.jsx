@@ -34,13 +34,6 @@ const MainThread = () => {
         console.log(newComment.parent)
     };
 
-    // const deleteComment = (userId) => {
-    //     console.log('delete')
-    //     setCurrComments(prevComments => {
-    //         return prevComments.filter(comment => comment.id !== userId)
-    //     })
-    // };
-
     return (
         <div>
             <div id='new-post-body'>
