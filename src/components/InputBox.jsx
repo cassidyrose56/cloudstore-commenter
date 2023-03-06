@@ -5,6 +5,9 @@ const InputBox = ({ addComment, parent }) => {
 
     const [newComment, setNewComment] = useState('')
 
+    const id = Math.floor(Math.random() * 100);
+    const myMap = new Map();
+
     return (
         <div>
             <input
@@ -13,12 +16,13 @@ const InputBox = ({ addComment, parent }) => {
                 placeholder='Add your comment here!'
             />
             <button className='btn' onClick={() => {
-                addComment({
-                    id: Math.floor(Math.random() * 100),
+                addComment(id, {
+                    userId: Math.floor(Math.random() * 100),
                     message: newComment,
                     parent: parent,
-                    nestedArr: []
+                    children: myMap
                 });
+                
                 setNewComment('');
             }}>
                     Submit

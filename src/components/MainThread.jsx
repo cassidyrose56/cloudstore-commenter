@@ -4,35 +4,25 @@ import InputBox from './InputBox.jsx';
 
 import '../styling/posts.scss';
 
-const commentsArr = [
-    {
-        id: 1,
-        message: 'This is comment 1',
-        parent: 0,
-        nestedArr: []
-    },
-    {
-        id: 2,
-        message: 'This is comment 2',
-        parent: 0,
-        nestedArr: []
-    },
-    {
-        id: 3,
-        message: 'This is comment 3',
-        parent: 0,
-        nestedArr: []
-    }
-];
 
 const MainThread = () => {
+    const [currComments, setCurrComments] = useState(new Map());
 
-    const [currComments, setCurrComments] = useState(commentsArr);
-
-    const addComment = (newComment) => {
-        setCurrComments((prev) => [newComment, ...prev]);
-        console.log(newComment.parent)
+    const addComment = (id, newComment) => {
+        setCurrComments(map => new Map(map.set(id, newComment)));
     };
+
+    const renderChildComponents = () => {
+        const childComponents = [];
+        currComments.forEach((value, key, currComments) => {
+            if(value.parent === 0) {
+                childComponents.push(<CommentItem id={key} key={key} userId={value.userId} comment={value.message} children={value.children} currComments={currComments} setCurrComments={setCurrComments} />);
+            }
+        });
+        return childComponents;
+        
+    };
+
 
     return (
         <div>
@@ -40,9 +30,7 @@ const MainThread = () => {
                 <InputBox addComment={addComment} parent={0} />
             </div>
             <div id='comments'>
-                {currComments.map((comment) => {
-                    if(comment.parent === 0) return <CommentItem key={comment.id} comment={comment} currComments={currComments} setCurrComments={setCurrComments} />
-                })}
+                {renderChildComponents()}
             </div>
         </div>
     )
