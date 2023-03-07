@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import MainThread from './MainThread.jsx';
 import '../styling/sitewide.scss';
 

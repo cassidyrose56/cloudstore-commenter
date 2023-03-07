@@ -17,10 +17,9 @@ const MainThread = () => {
         currComments.forEach((value, key, currComments) => {
             if(value.parent === 0) {
                 childComponents.push(<CommentItem id={key} key={key} userId={value.userId} comment={value.message} children={value.children} currComments={currComments} setCurrComments={setCurrComments} />);
-            }
+            };
         });
         return childComponents;
-        
     };
 
 

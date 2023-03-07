@@ -4,27 +4,24 @@ import '../styling/posts.scss';
 
 const CommentItem = ({id, userId, comment, children, currComments, setCurrComments }) => {
 
-    console.log(currComments);
-
     const [replying, setReplying] = useState(false);
 
     const addReply = (id, newComment) => {
-        //Add the childs id to the children map of the parent
+        // Add the child's id to the children map of the parent
         children.set(id, userId);
-        //Add the childs id and details to the overarching map
+        // Add the childs id and details to the overarching map
         setCurrComments(map => new Map(map.set(id, newComment)));
     };
 
     const deleteComment = (rootCommentId, commentId, currComments) => {
-        console.log("Delete comment for rootCommentId: ", rootCommentId, " and commentId: ", commentId)
         let comment = currComments.get(commentId);
         // If the parent comment id equals the current comment id being deleted and the children array is empty, delete the parent and you're done
-        //Also if its a child of something we should delete its child record from its parent
+        // Also if its a child of something we should delete its child record from its parent
         if (rootCommentId === commentId && comment.children.size === 0) {
             let parentId = currComments.get(commentId).parent;
-            //Remove child from map
+            // Remove child from map
             let newMap = new Map([...currComments].filter(([itemKey, value]) => itemKey !== rootCommentId));
-            //If this isn't a root comment, remove the reference to the child from the parent
+            // If this isn't a root comment, remove the reference to the child from the parent
             if (comment.parent !== 0) {
                 //Go to the parent and get its children list
                 let parentsChildren = newMap.get(parentId).children;
@@ -38,21 +35,20 @@ const CommentItem = ({id, userId, comment, children, currComments, setCurrCommen
             }
             return setCurrComments(newMap);
         }
-        //If I'm done deleting my children, I can delete myself and go up to the next level
+        // If I'm done deleting my children, I can delete myself and go up to the next level
         if (comment.children.size === 0) {
             console.log("Moving to next level: ", comment.parent);
             let newMap = new Map([...currComments].filter(([itemKey, value]) => itemKey !== commentId));
             setCurrComments(newMap);
             return deleteComment(rootCommentId, comment.parent, currComments);
-        }
+        };
 
-        //iterating through the comment's children and run this
+        // Iterating through the comment's children and delete the child key from the comment, then run the delete function passing in the child's key
         comment.children.forEach((value, key) => {
-            console.log("Deleting child: ", key);
+            // console.log("Deleting child: ", key);
             comment.children.delete(key);
-            deleteComment(rootCommentId,key,currComments);
+            deleteComment(rootCommentId, key, currComments);
         });
-
     };
 
     const renderChildComponents = () => {
