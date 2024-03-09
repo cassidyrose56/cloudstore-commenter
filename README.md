@@ -1,6 +1,6 @@
 # Technical Assessment for Cloudstore
 
-**Commenting system built with React, styled using SASS, and complied using Webpack**
+**Commenting system built with React, styled using SASS, and compiled using Webpack**
 
 For this technical assessment, I was asked to create a commenting system where users can add top-level comments, reply to existing comments, and delete comments along with their children. The MainThread component serves as the main container, managing the overall state of the comments. The CommentItem component represents an individual comment and handles actions like replying and deleting. The InputBox component provides the input functionality for adding new comments or replies.
 
