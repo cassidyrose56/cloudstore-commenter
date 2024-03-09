@@ -6,7 +6,7 @@ For this technical assessment, I was asked to create a commenting system where u
 
 The commenting system uses a Map data structure to store the comments, with each comment having an id, userId, message, parent, and children properties. The parent property indicates the ID of the parent comment, allowing for the creation of a nested comment structure. The children property is also a Map that stores the IDs of the child comments.
 
-![Demonstration of Project](/assets/CommentDemo.gif)
+![Demonstration of Project](https://imgur.com/a/d3BogIc)
 
 ## Installation
 
