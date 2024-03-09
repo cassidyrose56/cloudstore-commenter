@@ -22,7 +22,6 @@ const InputBox = ({ addComment, parent }) => {
                     parent: parent,
                     children: myMap
                 });
-                
                 setNewComment('');
             }}>
                     Submit
