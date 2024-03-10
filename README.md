@@ -1,4 +1,4 @@
-# Cloudstore Commenting Proof of Concept
+# Cloudstore Commenting Project
 
 **Commenting system built with React, styled using SASS, and compiled using Webpack**
 
